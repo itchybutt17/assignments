@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+
+</head>
+
+<body>
+
+    <script>
+        // Part A
+        let alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', "X", 'Y', 'Z']
+        let n = prompt('Enter a number between 0 to 26')
+        function generateButtons(n) {
+            if (n >= 1 && n <= 26) {
+                for (let i = 0; i < n; i++) {
+                    let button = document.createElement("BUTTON");
+                    button.innerHTML = alphabet[i];
+                    button.onclick = function clickHandler() {
+                        console.log('Button ' + alphabet[i] + ' was clicked');
+                    } 
+                    document.body.appendChild(button);
+                }
+            }
+        } 
+        // Part B
+        function recipeObject(title, servings, ingredients) {
+            this.title = title;
+            this.servings = servings;
+            this.ingredients = ingredients; 
+            this.print = function() {
+                document.write("<br>Title: " + title + "<br>");
+                document.write("Serves: " + String(servings) + "<br>");
+                document.write("Ingredients:<br>");
+                for (let i = 0; i < ingredients.length; i++) {
+                    document.write(ingredients[i] + "<br>")
+                }
+            }
+        }
+        // Invoke
+        generateButtons(n);
+        myObj = new recipeObject ("Chicken Cacciatore", 2, ['cinnamon', 'lettuce', 'onion'] );
+        myObj.print()
+    </script>
+</body>
+
+</html>
